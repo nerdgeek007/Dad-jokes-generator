@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dad Jokes</title>
+		<link rel="stylesheet" href="./base.css" />
+		<style>
+			.wrapper {
+				text-align: center;
+			}
+
+			.joke {
+				font-size: 3rem;
+				font-weight: 700;
+				line-height: 1.3;
+				margin-bottom: 1rem;
+			}
+			.getJoke {
+				margin: 0 auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+			}
+			.loader {
+				width: 48px;
+				height: 48px;
+				border: 5px solid #333;
+				border-radius: 50%;
+				display: inline-block;
+				box-sizing: border-box;
+				position: relative;
+				animation: pulse 1s linear infinite;
+			}
+			.loader:after {
+				content: '';
+				position: absolute;
+				width: 48px;
+				height: 48px;
+				border: 5px solid #333;
+				border-radius: 50%;
+				display: inline-block;
+				box-sizing: border-box;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				animation: scaleUp 1s linear infinite;
+			}
+
+			@keyframes scaleUp {
+				0% {
+					transform: translate(-50%, -50%) scale(0);
+				}
+				60%,
+				100% {
+					transform: translate(-50%, -50%) scale(1);
+				}
+			}
+			@keyframes pulse {
+				0%,
+				60%,
+				100% {
+					transform: scale(1);
+				}
+				80% {
+					transform: scale(1.2);
+				}
+			}
+			.hidden {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="joke">
+				<p>Dad Jokes.</p>
+			</div>
+
+			<button class="getJoke">
+				<span class="jokeText">Get A Joke</span>
+				<span class="loader hidden"></span>
+			</button>
+		</div>
+
+		<script src="./jokes.js"></script>
+	</body>
+</html>
